@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.12)
+project(ros2)
+
+# 递归遍历所有子目录，若存在 CMakeLists.txt 则自动 add_subdirectory
+function(add_subdirectories_recursive base_dir)
+    # 获取当前目录下的所有子目录
+    file(GLOB children RELATIVE ${base_dir} ${base_dir}/*)
+
+    foreach (child ${children})
+        set(child_path "${base_dir}/${child}")
+
+        # 判断是否为目录
+        if (IS_DIRECTORY ${child_path})
+            # 判断该目录下是否存在 CMakeLists.txt
+            if (EXISTS "${child_path}/CMakeLists.txt")
+                message(STATUS "Adding subdirectory: ${child_path}")
+                add_subdirectory(${child_path})
+            else ()
+                # 不存在则继续递归遍历其子目录
+                add_subdirectories_recursive(${child_path})
+            endif ()
+        endif ()
+    endforeach ()
+endfunction()
+
+# 调用：从当前 CMakeLists.txt 所在目录开始遍历
+add_subdirectories_recursive(${CMAKE_CURRENT_SOURCE_DIR})
