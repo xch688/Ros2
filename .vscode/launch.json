@@ -1,0 +1,63 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch (pkg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/${config:ros2.build.pkgDir}/build/${config:ros2.build.targetName}",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "PKG_DIR",
+                    "value": "${config:ros2.build.pkgDir}"
+                },
+                {
+                    "name": "TARGET_NAME",
+                    "value": "${config:ros2.build.targetName}"
+                }
+            ],
+            "externalConsole": false,
+            "console": "integratedTerminal",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Disable pagination",
+                    "text": "set pagination off",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Pretty print values",
+                    "text": "set print pretty on",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Print full objects",
+                    "text": "set print object on",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Do not limit array elements",
+                    "text": "set print elements 0",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build (pkg)"
+            ,
+            "postDebugTask": "clean build (expand_cpp_pkg)"
+        }
+    ]
+}

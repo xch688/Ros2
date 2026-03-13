@@ -1,0 +1,7 @@
+{
+    "ros2.build.pkgDir": "chap02/expand_cpp_pkg",
+    "ros2.build.targetName": "expand_cpp_node",
+    "debug.console.fontSize": 16,
+    "workbench.tree.fontSize": 22,
+    "workbench.list.fontSize": 22
+}

@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build (pkg)",
+            "type": "shell",
+            "command": "${workspaceFolder}/build.sh",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "env": {
+                    "PKG_DIR": "${config:ros2.build.pkgDir}",
+                    "TARGET_NAME": "${config:ros2.build.targetName}"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "clean build (expand_cpp_pkg)",
+            "type": "shell",
+            "command": "rm",
+            "args": [
+                "-rf",
+                "${workspaceFolder}/${config:ros2.build.pkgDir}/build"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
