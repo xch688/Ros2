@@ -6,19 +6,18 @@ if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif ()
 
 # find dependencies
-list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../install/status_interfaces")
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(status_interfaces REQUIRED)
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
 aux_source_directory(${CMAKE_SOURCE_DIR}/sylar LOG_SRCS)
-add_executable(hello_qt ${LOG_SRCS} ${CMAKE_CURRENT_SOURCE_DIR}/src/hello_qt.cpp)
+add_executable(sys_status_display ${LOG_SRCS} ${CMAKE_CURRENT_SOURCE_DIR}/src/sys_status_display.cpp)
 
-target_include_directories(hello_qt PUBLIC ${CMAKE_SOURCE_DIR})
-target_link_libraries(hello_qt Qt5::Widgets)
-ament_target_dependencies(hello_qt rclcpp)
-install(TARGETS hello_qt DESTINATION lib/${PROJECT_NAME})
+target_include_directories(sys_status_display PUBLIC ${CMAKE_SOURCE_DIR})
+target_link_libraries(sys_status_display Qt5::Widgets)
+ament_target_dependencies(sys_status_display rclcpp status_interfaces)
+install(TARGETS sys_status_display DESTINATION lib/${PROJECT_NAME})
 
 if (BUILD_TESTING)
     find_package(ament_lint_auto REQUIRED)
