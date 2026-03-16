@@ -10,7 +10,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + "/resource", ['resource/zidane.jpg'])
+        ('share/' + package_name + "/resource", ['resource/zidane.jpg','resource/test1.jpg']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -26,7 +26,8 @@ setup(
     entry_points={
         'console_scripts': [
             "learn_face_detect=demo_pothon_service.learn_face_detect:main",
-            "face_detect_node=demo_pothon_service.face_detect_node:main"
+            "face_detect_node=demo_pothon_service.face_detect_node:main",
+            "face_detect_client_node=demo_pothon_service.face_detect_client_node:main"
         ],
     },
 )
