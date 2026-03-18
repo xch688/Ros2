@@ -24,4 +24,4 @@ function(add_subdirectories_recursive base_dir)
 endfunction()
 
 # 调用：从当前 CMakeLists.txt 所在目录开始遍历
-add_subdirectories_recursive(${CMAKE_CURRENT_SOURCE_DIR})
+# add_subdirectories_recursive(${CMAKE_CURRENT_SOURCE_DIR})

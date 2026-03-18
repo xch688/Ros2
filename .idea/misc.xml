@@ -3,7 +3,8 @@
   <component name="CMakePythonSetting">
     <option name="pythonIntegrationState" value="YES" />
   </component>
-  <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$/chap03/topic_practice_workspace/src/status_display">
+  <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$/chap02/ros2_cpp_node">
     <contentRoot DIR="$PROJECT_DIR$" />
   </component>
+  <component name="WestSettings"><![CDATA[{}]]></component>
 </project>

@@ -3,7 +3,7 @@
     "ros2.build.targetName": "expand_cpp_node",
     "debug.console.fontSize": 16,
     "workbench.tree.fontSize": 22,
-    "workbench.list.fontSize": 22,
+    "workbench.list.fontSize": 22
     // "python.analysis.extraPaths": [
     //     "${workspaceFolder}/chap03/topic_practice_workspace/src/status_publisher",
     //     "${workspaceFolder}/chap03/topic_practice_workspace/install/status_interfaces/local/lib/python3.10/dist-packages"
